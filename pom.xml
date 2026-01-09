@@ -30,14 +30,64 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		<!-- Spring WebFlux -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 
+		<!-- Spring Data R2DBC -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
+		</dependency>
+
+		<!-- PostgreSQL R2DBC Driver -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>r2dbc-postgresql</artifactId>
+		</dependency>
+
+		<!-- PostgreSQL JDBC (for migrations) -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Kafka -->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+
+		<!-- Reactor Kafka -->
+		<dependency>
+			<groupId>io.projectreactor.kafka</groupId>
+			<artifactId>reactor-kafka</artifactId>
+		</dependency>
+
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Test Dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

@@ -1,3 +1,38 @@
 spring:
   application:
     name: reactive-kafka-application
+
+  r2dbc:
+    url: ${SPRING_R2DBC_URL:r2dbc:postgresql://localhost:5432/appdb}
+    username: ${SPRING_R2DBC_USERNAME:appuser}
+    password: ${SPRING_R2DBC_PASSWORD:apppass}
+    pool:
+      initial-size: 10
+      max-size: 20
+
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: reactive-consumer-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    admin:
+      auto-create: false
+
+#app:
+#  kafka:
+#    topic: product-events
+
+server:
+  port: 9192
+
+logging:
+  level:
+    root: INFO
+    com.vivek.kafka.reactive: DEBUG
+    org.springframework.kafka: INFO
+    org.springframework.r2dbc: DEBUG
